@@ -1,3 +1,6 @@
 {
-    "typescript.tsdk": "node_modules\\typescript\\lib"
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"code-runner.executorMap": {
+		"typescript": "npx ts-node --files --transpile-only",
+	}
 }
