@@ -1,19 +1,19 @@
+import { MyIteratorProtocol } from './my-iterator-protocol';
 import { MyDefaultIterator } from './my-default-iterator';
-import { MyIteratorProtocol } from './my-iterator.protoco';
 
 export class MyDataStructure {
   private _items: string[] = [];
   private iterator: MyIteratorProtocol<string> = new MyDefaultIterator(this);
 
   addItem(...items: string[]): void {
-    items.forEach((item) => this._items.push(item));
+    items.forEach((item) => this.items.push(item));
   }
 
   get items(): string[] {
     return this._items;
   }
 
-  seize(): number {
+  size(): number {
     return this.items.length;
   }
 
@@ -22,7 +22,10 @@ export class MyDataStructure {
   }
 
   [Symbol.iterator](): MyIteratorProtocol<string> {
-    this.iterator.reset();
     return this.iterator;
+  }
+
+  resetIterator(): void {
+    this.iterator.reset();
   }
 }
